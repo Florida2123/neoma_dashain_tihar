@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF0F3"/>
+      <stop offset="50%" stop-color="#FCE4EC"/>
+      <stop offset="100%" stop-color="#F8BBD0"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="100%" stop-color="#FFB300"/>
+    </linearGradient>
+    <linearGradient id="sakuraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFCDD2"/>
+      <stop offset="100%" stop-color="#F06292"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#A94F70" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  
+  <rect width="800" height="600" rx="24" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle decorative circles -->
+  <circle cx="150" cy="120" r="80" fill="#FFFFFF" fill-opacity="0.4"/>
+  <circle cx="680" cy="480" r="100" fill="#FFFFFF" fill-opacity="0.3"/>
+  <circle cx="700" cy="150" r="60" fill="url(#sakuraGrad)" fill-opacity="0.15"/>
+  
+  <!-- Main Scrapbook Photo 1 (Tilted Left) -->
+  <g transform="translate(140, 100) rotate(-6)" filter="url(#cardShadow)">
+    <rect width="260" height="320" rx="12" fill="#FFFFFF"/>
+    <!-- Photo Area: Festive Tika & Jamara Scene -->
+    <rect x="18" y="18" width="224" height="230" rx="6" fill="#FDF2F4"/>
+    <!-- Sun/Moon aura -->
+    <circle cx="130" cy="110" r="65" fill="#FFE0B2" fill-opacity="0.6"/>
+    <!-- Brass Thali -->
+    <ellipse cx="130" cy="150" rx="75" ry="32" fill="url(#goldGrad)"/>
+    <ellipse cx="130" cy="148" rx="68" ry="26" fill="#FFF3E0"/>
+    <!-- Red Tika mound -->
+    <ellipse cx="115" cy="145" rx="20" ry="12" fill="#D32F2F"/>
+    <circle cx="115" cy="142" r="5" fill="#B71C1C"/>
+    <!-- Jamara shoots (Green & Golden) -->
+    <path d="M140 148 Q155 105 165 90" stroke="#7CB342" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M145 150 Q162 110 175 95" stroke="#FDD835" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M135 150 Q145 100 152 85" stroke="#8BC34A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <path d="M148 150 Q170 120 180 110" stroke="#C0CA33" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <text x="130" y="285" font-family="'Playfair Display', serif" font-size="16" fill="#880E4F" text-anchor="middle" font-weight="600">Vijaya Dashami</text>
+    <text x="130" y="303" font-family="'Caveat', cursive, sans-serif" font-size="15" fill="#AD1457" text-anchor="middle">blessings &amp; joy ♡</text>
+    <!-- Washi tape at top -->
+    <rect x="80" y="-8" width="100" height="20" rx="2" fill="#F8BBD0" fill-opacity="0.85" transform="rotate(2)"/>
+  </g>
+
+  <!-- Main Scrapbook Photo 2 (Tilted Right) -->
+  <g transform="translate(420, 160) rotate(5)" filter="url(#cardShadow)">
+    <rect width="270" height="330" rx="12" fill="#FFFFFF"/>
+    <!-- Photo Area: Tihar Diyo & Lights -->
+    <rect x="18" y="18" width="234" height="240" rx="6" fill="#3E2723"/>
+    <circle cx="135" cy="138" r="90" fill="#BF360C" fill-opacity="0.35"/>
+    <circle cx="135" cy="138" r="60" fill="#FF6F00" fill-opacity="0.45"/>
+    <!-- Clay Diyo -->
+    <ellipse cx="135" cy="165" rx="50" ry="22" fill="#8D6E63"/>
+    <ellipse cx="135" cy="162" rx="42" ry="16" fill="#5D4037"/>
+    <!-- Golden Flame -->
+    <path d="M135 156 Q122 135 135 100 Q148 135 135 156 Z" fill="url(#goldGrad)"/>
+    <circle cx="135" cy="132" r="8" fill="#FFF9C4"/>
+    <!-- Marigold Garland petals -->
+    <circle cx="75" cy="165" r="12" fill="#FF9800"/>
+    <circle cx="95" cy="180" r="13" fill="#FFC107"/>
+    <circle cx="175" cy="180" r="13" fill="#FFB300"/>
+    <circle cx="195" cy="165" r="12" fill="#FF9800"/>
+    <!-- Twinkle stars -->
+    <path d="M60 60 Q70 70 80 70 Q70 70 60 80 Q60 70 50 70 Q60 70 60 60 Z" fill="#FFE082"/>
+    <path d="M200 80 Q207 87 215 87 Q207 87 200 95 Q200 87 192 87 Q200 87 200 80 Z" fill="#FFF59D"/>
+    <text x="135" y="295" font-family="'Playfair Display', serif" font-size="16" fill="#880E4F" text-anchor="middle" font-weight="600">Deepawali Nights</text>
+    <text x="135" y="313" font-family="'Caveat', cursive, sans-serif" font-size="15" fill="#AD1457" text-anchor="middle">lights &amp; laughter ★</text>
+    <!-- Washi tape at top -->
+    <rect x="85" y="-8" width="100" height="20" rx="2" fill="#FFE082" fill-opacity="0.85" transform="rotate(-3)"/>
+  </g>
+  
+  <!-- Floating Sakura Blossoms -->
+  <g transform="translate(680, 80) scale(0.9)">
+    <path d="M0 0 C-15 -30 -30 0 0 30 C30 0 15 -30 0 0 Z" fill="url(#sakuraGrad)" opacity="0.85"/>
+    <path d="M0 0 C-30 -15 0 -30 30 0 C0 30 -30 15 0 0 Z" fill="url(#sakuraGrad)" opacity="0.85"/>
+    <circle cx="0" cy="0" r="5" fill="#FFE082"/>
+  </g>
+  <g transform="translate(80, 460) scale(0.7) rotate(25)">
+    <path d="M0 0 C-15 -30 -30 0 0 30 C30 0 15 -30 0 0 Z" fill="url(#sakuraGrad)" opacity="0.8"/>
+    <path d="M0 0 C-30 -15 0 -30 30 0 C0 30 -30 15 0 0 Z" fill="url(#sakuraGrad)" opacity="0.8"/>
+    <circle cx="0" cy="0" r="5" fill="#FFE082"/>
+  </g>
+</svg>

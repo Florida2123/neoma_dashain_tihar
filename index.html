@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sakura" data-font-size="medium">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dashain & Tihar Memories</title>
+  <meta name="description" content="A personal digital vacation diary documenting Dashain and Tihar celebrations, family blessings, and memorable moments.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+
+  <!-- Google Fonts: Editorial Serif, Clean Sans & Handwriting -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Canvas for Falling Sakura Petals -->
+  <canvas id="sakura-canvas" aria-hidden="true"></canvas>
+
+  <!-- ====================================================================
+       1. NAVIGATION BAR
+       ==================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="nav-logo" aria-label="Go to Homepage">
+        <span class="nav-logo-icon">🌸</span>
+        <span class="nav-logo-text">My Little Diary</span>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#overview" class="nav-link">Overview</a></li>
+          <li><a href="#dashain" class="nav-link">Dashain</a></li>
+          <li><a href="#tihar" class="nav-link">Tihar</a></li>
+          <li><a href="#gallery" class="nav-link">Memories</a></li>
+          <li><a href="#videos" class="nav-link">Videos</a></li>
+          <li><a href="#favorites" class="nav-link">Favorites</a></li>
+          <li><a href="#about" class="nav-link">About Me</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Music toggle & Settings drawer) -->
+      <div class="nav-actions">
+        <button id="nav-music-btn" class="nav-btn playing" aria-label="Mute Music" title="Mute Music">
+          <span class="icon">🎵</span>
+        </button>
+        <button id="open-settings-btn" class="nav-btn" aria-label="Open Diary Customization Settings" aria-controls="settings-drawer" aria-expanded="false" title="Customize Diary">
+          <span class="icon">⚙️</span>
+        </button>
+        <button id="nav-toggle-btn" class="nav-toggle-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       2. HERO SECTION
+       ==================================================================== -->
+  <section class="hero-section" id="home">
+    <div class="container hero-grid">
+      <!-- Left Column: Editorial Greeting & Story Intro -->
+      <div class="hero-content scroll-reveal">
+        <span class="hero-welcome-badge">A little humble place ♡</span>
+        <h1 class="hero-title" id="hero-title">
+          My Dashain &amp; <span>Tihar Memories</span>
+        </h1>
+        <p class="hero-subtitle" id="hero-subtitle">
+          A little collection of moments, laughter, traditions and happiness.
+        </p>
+        <p class="hero-intro" id="hero-intro">
+          Every holiday has its own little stories. Here are some of the beautiful memories I made during my Dashain and Tihar vacation — from sacred blessings and high swings to twinkling diyos and family warmth.
+        </p>
+
+        <!-- Student Metadata Badge -->
+        <div class="hero-meta-badge">
+          <span>By <strong class="student-name">Supriya</strong></span>
+          <span aria-hidden="true">•</span>
+          <span class="student-grade">Grade 10</span>
+          <span aria-hidden="true">•</span>
+          <span class="student-school">Paramount Public School</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Asymmetric Scrapbook Polaroid -->
+      <div class="hero-media scroll-reveal">
+        <div class="hero-scrapbook-frame">
+          <div class="washi-tape-accent" aria-hidden="true"></div>
+          <div class="hero-photo-container">
+            <img id="hero-main-img" src="assets/images/first.jpg" alt="something went wrong.?" onerror="this.src='assets/images/hero.svg'">
+          </div>
+          <p class="hero-caption" id="hero-img-caption">Vacation highlights with family &amp; festivities</p>
+          <div class="hero-stamp-badge" aria-hidden="true">
+            <span class="stamp-motif">✦</span>
+            <span class="stamp-season">Autumn</span>
+            <span class="stamp-year">2083</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Down Hint -->
+    <a href="#overview" class="scroll-down-hint" aria-label="Scroll down to Overview">
+      <div class="mouse-icon">
+        <div class="mouse-dot"></div>
+      </div>
+      <span>Scroll to explore</span>
+    </a>
+  </section>
+
+  <!-- ====================================================================
+       3. VACATION OVERVIEW / INTRODUCTION
+       ==================================================================== -->
+  <section class="section-padding overview-section" id="overview">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-tag">A Vacation to Remember</span>
+        <h2 class="section-title" id="overview-heading">A Vacation to Remember</h2>
+        <p class="section-subtitle" id="overview-subheading">Counting blessings, festive excitement, and slow peaceful days</p>
+      </div>
+
+      <div class="overview-paper-card scroll-reveal">
+        <div class="washi-tape-accent" aria-hidden="true"></div>
+        <div class="overview-grid">
+          <!-- Left: Handwritten Note & Student Intro -->
+          <div class="overview-note-box">
+            <p class="overview-handwritten-quote" id="overview-quote">
+              "The greatest gift of any holiday is time spent with those who love you."
+            </p>
+            <p class="overview-text" id="overview-note">
+              Holidays always begin with a quiet flutter of excitement. After busy months of classes, homework, and exams, the school bell rang for the autumn break. Stepping out into the crisp breeze, knowing that the most awaited festivals of the year were finally here, felt truly magical.
+            </p>
+          </div>
+
+          <!-- Right: Festive Numbers & Highlights -->
+          <div>
+            <div class="overview-stats" id="overview-stats-grid">
+              <!-- Hydrated from content.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Memory Heart Counter -->
+        <div class="overview-love-counter">
+          <button id="like-diary-btn" class="like-btn" aria-label="Leave a love for this diary">
+            <img src="assets/images/heart-icon.png" alt="" class="heart-icon" aria-hidden="true">
+            <span>Leave a Heart</span>
+            <span id="like-diary-count" class="like-count">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       4. DASHAIN SECTION
+       ==================================================================== -->
+  <section class="section-padding dashain-section" id="dashain">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-tag">Festival of Victory &amp; Family</span>
+        <h2 class="section-title" id="dashain-heading">Dashain — Moments of Happiness</h2>
+        <p class="section-subtitle" id="dashain-subtitle">Family, blessings, celebrations and beautiful memories.</p>
+      </div>
+
+      <!-- Editorial Quote Box -->
+      <div class="editorial-quote-box scroll-reveal">
+        <p class="editorial-quote" id="dashain-quote">
+          "Dashain reminds me how beautiful it is to be surrounded by the people I love."
+        </p>
+      </div>
+
+      <!-- Asymmetrical Collage Grid -->
+      <div class="dashain-collage" id="dashain-collage-grid">
+        <!-- Hydrated dynamically from content.js -->
+      </div>
+
+      <!-- Dashain Extended Storytelling & Swing Feature -->
+      <div class="overview-paper-card scroll-reveal" style="margin-top: 55px;">
+        <div class="washi-tape-accent" aria-hidden="true"></div>
+        <div class="overview-grid">
+          <div class="overview-note-box">
+            <span class="polaroid-tag">Journal Entry #1</span>
+            <h3 style="font-size: 1.6rem; margin: 8px 0 14px;">The Arrival of Ghatasthapana</h3>
+            <p class="overview-text">
+              The festive season truly begins when we sow the barley seeds in the puja room on Ghatasthapana. In the cool darkness, we watered the sand each morning and watched the tender, vibrant yellow shoots of Jamara sprout toward the light. It symbolized hope, life, and the start of our long-awaited school break.
+            </p>
+          </div>
+          <div class="overview-note-box">
+            <span class="polaroid-tag">Journal Entry #2</span>
+            <h3 style="font-size: 1.6rem; margin: 8px 0 14px;">Vijaya Dashami Blessings</h3>
+            <p class="overview-text">
+              On the tenth day, everyone dressed in their finest new holiday clothes. Elders placed the sacred red Akshata tika on our foreheads, blessed us with Jamara, and gave us sincere wishes of good health, happiness, and success in our studies. The joy of being together is something I will always treasure.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- The High Bamboo Swing (Linge Ping) Feature -->
+      <div class="feature-showcase-card scroll-reveal">
+        <div class="washi-tape-accent" aria-hidden="true"></div>
+        <div class="feature-showcase-img">
+          <img src="assets/images/dashain/dashain-swing.jpg" alt="Traditional Bamboo Swing during Dashain">
+        </div>
+        <div class="feature-showcase-content">
+          <span class="polaroid-tag">Tradition &amp; Fun</span>
+          <h3>Touching the Sky on the Linge Ping</h3>
+          <p>
+            It is a beloved Nepali belief that one should leave the ground at least once a year during Dashain by riding the traditional tall bamboo swing (Linge Ping). 
+          </p>
+          <p>
+            When my turn came, cousins pushed the swing higher and higher. With the cool autumn wind on my face and mountains in the distance, it felt like flying!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       5. TIHAR SECTION
+       ==================================================================== -->
+  <section class="section-padding tihar-section" id="tihar">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-tag">Festival of Lights &amp; Flowers</span>
+        <h2 class="section-title" id="tihar-heading">Tihar — A Festival Full of Lights</h2>
+        <p class="section-subtitle" id="tihar-subtitle">Lights, colors, flowers and unforgettable moments.</p>
+      </div>
+
+      <!-- Tihar Atmosphere Cards -->
+      <div class="tihar-collage" id="tihar-collage-grid">
+        <!-- Hydrated dynamically from content.js -->
+      </div>
+
+      <!-- Extended Tihar Story Journal -->
+      <div class="overview-paper-card scroll-reveal" style="margin-top: 55px;">
+        <div class="washi-tape-accent" aria-hidden="true"></div>
+        <div class="overview-grid">
+          <div class="overview-note-box">
+            <span class="polaroid-tag">Laxmi Puja Evening</span>
+            <h3 style="font-size: 1.6rem; margin: 8px 0 14px;">The Night of a Thousand Diyos</h3>
+            <p class="overview-text">
+              As dusk arrived on Laxmi Puja, the entire neighborhood was wrapped in golden wonder. We placed clay diyos filled with mustard oil on every balcony ledge, window sill, and doorway. Watching the darkness softly give way to thousands of flickering points of light felt like stepping into a fairy tale.
+            </p>
+          </div>
+          <div class="overview-note-box">
+            <span class="polaroid-tag">Bhai Tika Tradition</span>
+            <h3 style="font-size: 1.6rem; margin: 8px 0 14px;">Seven Colors of Blessings</h3>
+            <p class="overview-text">
+              On the final day of Tihar, we celebrated Bhai Tika. Sisters blessed brothers with the vibrant seven-colored Saptarangi Tika and draped fresh purple Makhamali and golden Sayapatri garlands around their necks. We exchanged sweets, dried fruits, and heartfelt promises to always support one another.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rangoli Art Showcase Feature -->
+      <div class="feature-showcase-card scroll-reveal">
+        <div class="washi-tape-accent" aria-hidden="true"></div>
+        <div class="feature-showcase-content">
+          <span class="polaroid-tag">Art &amp; Creativity</span>
+          <h3>Designing Our Courtyard Rangoli</h3>
+          <p>
+            Creating the Rangoli at the main entrance was my favorite creative task of the holidays! We blended bright pink, golden yellow, turquoise, and deep maroon powders into intricate floral mandalas.
+          </p>
+          <p>
+            At the center, we placed a warm glowing diyo and fresh marigold petals. Everyone who visited stopped to admire the colors!
+          </p>
+        </div>
+        <div class="feature-showcase-img">
+          <img src="assets/images/tihar/Rangoli.png" alt="Courtyard Rangoli during Tihar">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       6. PHOTO GALLERY — CAPTURED MOMENTS
+       ==================================================================== -->
+  <section class="section-padding gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-tag">Captured Moments</span>
+        <h2 class="section-title">Captured Moments</h2>
+        <p class="section-subtitle">Some memories deserve to stay forever. Click any photo to enlarge.</p>
+      </div>
+
+      <!-- Gallery Grid / Masonry Container -->
+      <div class="gallery-container layout-masonry" id="diary-photo-gallery">
+        <!-- Hydrated from js/gallery.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="gallery-lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo Lightbox">
+    <button id="lightbox-close-btn" class="lightbox-btn lightbox-close-btn" aria-label="Close Lightbox">✕</button>
+    <button id="lightbox-prev-btn" class="lightbox-btn lightbox-prev-btn" aria-label="Previous Photo">❮</button>
+    <button id="lightbox-next-btn" class="lightbox-btn lightbox-next-btn" aria-label="Next Photo">❯</button>
+
+    <div class="lightbox-content-box">
+      <div class="lightbox-image-holder">
+        <img id="lightbox-img" src="" alt="Enlarged vacation memory">
+      </div>
+      <div class="lightbox-details">
+        <div id="lightbox-caption">
+          <!-- Dynamic caption -->
+        </div>
+        <div class="lightbox-meta">
+          <span id="lightbox-category" class="lightbox-category-tag">Dashain</span>
+          <div id="lightbox-counter" class="lightbox-counter">1 / 8</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       7. VIDEO MEMORIES SECTION
+       ==================================================================== -->
+  <section class="section-padding video-section" id="videos">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-tag">Motion &amp; Sound</span>
+        <h2 class="section-title">Little Videos, Big Memories</h2>
+        <p class="section-subtitle">Short video clips capturing the festive laughter and glowing evenings.</p>
+      </div>
+
+      <div class="video-grid" id="video-memories-grid">
+        <!-- Hydrated dynamically from content.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       8. FAVORITE MEMORIES SECTION
+       ==================================================================== -->
+  <section class="section-padding favorites-section" id="favorites">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-tag">Little Treasures</span>
+        <h2 class="section-title">My Favorite Little Things</h2>
+        <p class="section-subtitle">The special tastes, traditions, and feelings that made this vacation unforgettable.</p>
+      </div>
+
+      <div class="scrapbook-grid" id="favorites-scrapbook-grid">
+        <!-- Hydrated from content.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       9. WHAT I LEARNED SECTION
+       ==================================================================== -->
+  <section class="section-padding learnings-section" id="about">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-tag">Student Reflection</span>
+        <h2 class="section-title" id="learnings-heading">More Than Just Holidays</h2>
+        <p class="section-subtitle" id="learnings-subheading">What these celebrations taught me beyond the fun and feasts</p>
+      </div>
+
+      <div class="learnings-list" id="learnings-list">
+        <!-- Hydrated from content.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       10. FINAL CLOSING SECTION & FOOTER
+       ==================================================================== -->
+  <section class="section-padding closing-section">
+    <div class="container">
+      <div class="closing-card scroll-reveal">
+        <div class="washi-tape-accent" aria-hidden="true"></div>
+        <div class="closing-image-wrapper">
+          <img id="closing-image" src="assets/images/closing-diary.svg" alt="Closed Vacation Diary with Sakura Blossom" onerror="this.src='assets/images/hero.svg'">
+        </div>
+        <h2 class="closing-title" id="closing-heading">Until the Next Celebration...</h2>
+        <p class="closing-quote" id="closing-quote">
+          "These holidays gave me beautiful memories that I will always cherish. I am grateful for every little moment, every smile, and every celebration."
+        </p>
+        <p class="closing-signoff" id="closing-signoff">With love ♡</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Made with love, by <span class="student-name">Supriya</span> ♡ • Dashain &amp; Tihar School Vacation Project • <span id="current-year">2026</span></p>
+    </div>
+  </footer>
+
+  <!-- Back To Top Floating Action Button -->
+  <button id="back-to-top-btn" class="back-to-top" aria-label="Back to top of page" title="Back to top">
+    ↑
+  </button>
+
+  <!-- ====================================================================
+       11. SETTINGS DRAWER (Functional Customization Panel)
+       ==================================================================== -->
+  <div id="settings-overlay" class="settings-overlay" aria-hidden="true"></div>
+  
+  <aside id="settings-drawer" class="settings-drawer" aria-label="Diary Customization Settings" aria-hidden="true">
+    <div class="settings-header">
+      <h3 class="settings-title">Customize My Diary</h3>
+      <button id="close-settings-btn" class="settings-close-btn" aria-label="Close Settings Panel">✕</button>
+    </div>
+
+    <div class="settings-body">
+      <!-- 1. Theme Color Picker -->
+      <div class="setting-group">
+        <label class="setting-label">Aesthetic Theme</label>
+        <span class="setting-desc">Choose a delicate mood for the journal:</span>
+        <div class="theme-picker-grid">
+          <label class="theme-option" title="Sakura Pink (Default)">
+            <input type="radio" name="diary-theme" value="sakura" checked>
+            <div class="theme-swatch theme-swatch-sakura">🌸</div>
+          </label>
+          <label class="theme-option" title="Soft Rose">
+            <input type="radio" name="diary-theme" value="rose">
+            <div class="theme-swatch theme-swatch-rose">🌹</div>
+          </label>
+          <label class="theme-option" title="Lavender Dream">
+            <input type="radio" name="diary-theme" value="lavender">
+            <div class="theme-swatch theme-swatch-lavender">🪻</div>
+          </label>
+          <label class="theme-option" title="Cream Aesthetic">
+            <input type="radio" name="diary-theme" value="cream">
+            <div class="theme-swatch theme-swatch-cream">🌾</div>
+          </label>
+          <label class="theme-option" title="Dark Rose">
+            <input type="radio" name="diary-theme" value="darkrose">
+            <div class="theme-swatch theme-swatch-darkrose">🌙</div>
+          </label>
+        </div>
+      </div>
+
+      <!-- 2. Falling Sakura Petals Toggle -->
+      <div class="setting-group">
+        <div class="setting-label">
+          <span>Sakura Petals Animation</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="setting-petals" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <span class="setting-desc">Toggle delicate falling cherry blossom petals</span>
+      </div>
+
+      <!-- 3. Petal Density -->
+      <div class="setting-group">
+        <label for="setting-density" class="setting-label">Petal Density</label>
+        <select id="setting-density" class="setting-select">
+          <option value="low">Low (Gentle &amp; Minimal)</option>
+          <option value="medium" selected>Medium (Balanced)</option>
+          <option value="high">High (Festive Shower)</option>
+        </select>
+      </div>
+
+      <!-- 4. Typography Font Size -->
+      <div class="setting-group">
+        <label for="setting-fontsize" class="setting-label">Reading Font Size</label>
+        <select id="setting-fontsize" class="setting-select">
+          <option value="small">Small</option>
+          <option value="medium" selected>Medium (Standard)</option>
+          <option value="large">Large (Comfortable)</option>
+        </select>
+      </div>
+
+      <!-- 5. Diary Background Music -->
+      <div class="setting-group">
+        <div class="setting-label">
+          <span>Ambient Music &amp; Chimes</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="setting-music">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <span class="setting-desc">Soothing ambient chimes or custom MP3</span>
+        <label for="setting-volume" class="setting-desc" style="margin-top: 6px;">Volume:</label>
+        <input type="range" id="setting-volume" class="setting-range" min="0" max="1" step="0.05" value="0.5" aria-label="Music Volume">
+      </div>
+
+      <!-- 6. Animation Effects -->
+      <div class="setting-group">
+        <div class="setting-label">
+          <span>Visual Micro-Interactions</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="setting-animations" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <span class="setting-desc">Smooth scroll reveals and floating stamps</span>
+      </div>
+
+      <!-- 7. Gallery Layout Option -->
+      <div class="setting-group">
+        <label class="setting-label">Photo Gallery Layout</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="gallery-layout" value="masonry" checked>
+            <span>Masonry Collage</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="gallery-layout" value="grid">
+            <span>Uniform Grid</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 8. Distraction-Free Reading Mode -->
+      <div class="setting-group">
+        <div class="setting-label">
+          <span>Reading Mode</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="setting-reading-mode">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <span class="setting-desc">Hides decorative tapes &amp; simplifies styling</span>
+      </div>
+    </div>
+
+    <!-- 9. Reset Settings -->
+    <div class="settings-footer">
+      <button id="reset-settings-btn" class="reset-btn">Reset All Settings to Default</button>
+    </div>
+  </aside>
+
+  <!-- ====================================================================
+       SCRIPTS: Content Config, Petals Engine, Settings, Gallery & Main
+       ==================================================================== -->
+  <script src="js/content.js"></script>
+  <script src="js/petals.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+

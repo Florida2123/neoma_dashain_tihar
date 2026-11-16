@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E1F5FE"/>
+      <stop offset="60%" stop-color="#FFF3E0"/>
+      <stop offset="100%" stop-color="#FCE4EC"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#skyGrad)"/>
+  <!-- Green Rolling Hills in autumn -->
+  <path d="M-50 450 Q120 330 300 370 Q480 410 650 340 L650 450 Z" fill="#C8E6C9" opacity="0.7"/>
+  <path d="M-20 450 Q200 360 400 390 Q520 400 650 380 L650 450 Z" fill="#A5D6A7"/>
+  
+  <!-- Kites flying in the clear Dashain sky -->
+  <g transform="translate(120, 80) rotate(15) scale(0.7)">
+    <polygon points="0,-40 30,0 0,40 -30,0" fill="#E91E63"/>
+    <polygon points="0,-40 0,40 30,0" fill="#C2185B"/>
+    <path d="M0 40 Q-10 65 5 90 Q-5 110 0 130" stroke="#E91E63" stroke-width="2" fill="none"/>
+  </g>
+  <g transform="translate(480, 100) rotate(-20) scale(0.6)">
+    <polygon points="0,-40 30,0 0,40 -30,0" fill="#FF9800"/>
+    <polygon points="0,-40 0,40 30,0" fill="#F57C00"/>
+    <path d="M0 40 Q10 60 -5 85 Q8 105 0 120" stroke="#FF9800" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Bamboo Swing (Linge Ping) -->
+  <!-- 4 Bamboo poles forming pyramid -->
+  <line x1="220" y1="400" x2="295" y2="110" stroke="#795548" stroke-width="10" stroke-linecap="round"/>
+  <line x1="240" y1="410" x2="300" y2="110" stroke="#A1887F" stroke-width="9" stroke-linecap="round"/>
+  <line x1="380" y1="400" x2="305" y2="110" stroke="#795548" stroke-width="10" stroke-linecap="round"/>
+  <line x1="360" y1="410" x2="300" y2="110" stroke="#8D6E63" stroke-width="9" stroke-linecap="round"/>
+  <!-- Top apex crossbar / knot -->
+  <circle cx="300" cy="110" r="14" fill="#5D4037"/>
+  <!-- Jute Ropes swinging -->
+  <path d="M296 112 Q285 240 270 290" stroke="#D7CCC8" stroke-width="4.5" fill="none"/>
+  <path d="M304 112 Q295 240 280 290" stroke="#D7CCC8" stroke-width="4.5" fill="none"/>
+  <!-- Swing seat wood & swinging motion -->
+  <rect x="260" y="290" width="30" height="10" rx="3" fill="#8D6E63" transform="rotate(-8 275 295)"/>
+  
+  <text x="300" y="390" font-family="'Playfair Display', serif" font-size="22" fill="#880E4F" font-weight="700" text-anchor="middle">Traditional Bamboo Swing</text>
+  <text x="300" y="415" font-family="'Caveat', cursive, sans-serif" font-size="18" fill="#AD1457" text-anchor="middle">Touching the sky during Dashain</text>
+</svg>

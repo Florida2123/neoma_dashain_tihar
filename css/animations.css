@@ -1,0 +1,206 @@
+/**
+ * ====================================================================
+ * ANIMATIONS & MICRO-INTERACTIONS
+ * ====================================================================
+ */
+
+/* 1. Gentle Floating Motions */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(6px, -10px) rotate(-4deg);
+  }
+}
+
+/* 2. Diyo Warm Glow Pulse */
+@keyframes diyoGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(232, 184, 109, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(232, 184, 109, 0.6);
+  }
+}
+
+/* 3. Interactive Heart Burst */
+@keyframes heartBurst {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.35) rotate(-10deg);
+  }
+  60% {
+    transform: scale(0.9) rotate(5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.heart-burst .heart-icon {
+  animation: heartBurst 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Floating Heart Particles */
+.floating-heart-particle {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: floatUpHeart 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 2px 4px rgba(169, 79, 112, 0.2));
+}
+
+.floating-heart-particle img {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes floatUpHeart {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4) rotate(0deg);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(calc(var(--tx, 0px) * 0.15), calc(var(--ty, -50px) * 0.15)) scale(1.2) rotate(calc(var(--rot, 0deg) * 0.5));
+  }
+  75% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 0px), var(--ty, -90px)) scale(0.9) rotate(var(--rot, 15deg));
+  }
+}
+
+/* 4. Mouse Scroll Down Indicator */
+@keyframes mouseWheel {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes bounceHint {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(-50%, 0);
+  }
+  40% {
+    transform: translate(-50%, -8px);
+  }
+  60% {
+    transform: translate(-50%, -4px);
+  }
+}
+
+/* 5. Lightbox Zoom Transition */
+@keyframes zoomLightbox {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 6. Scroll Reveal States */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay helpers for grids */
+.scroll-reveal:nth-child(2) {
+  transition-delay: 0.12s;
+}
+.scroll-reveal:nth-child(3) {
+  transition-delay: 0.24s;
+}
+.scroll-reveal:nth-child(4) {
+  transition-delay: 0.36s;
+}
+
+/* 7. Rotating music badge */
+@keyframes rotateMusic {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nav-btn.playing {
+  border-color: var(--rose-deep);
+  background: var(--bg-secondary);
+}
+
+.nav-btn.playing .icon {
+  display: inline-block;
+  animation: floatGentle 2s infinite ease-in-out;
+}
+
+/* --------------------------------------------------------------------
+   ACCESSIBILITY & USER SETTINGS OVERRIDES
+   -------------------------------------------------------------------- */
+
+/* Disabled Animations via Settings */
+body.disable-animations *,
+body.disable-animations *::before,
+body.disable-animations *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+body.disable-animations .scroll-reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Prefers Reduced Motion System Setting */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+

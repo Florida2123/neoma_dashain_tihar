@@ -1,0 +1,1023 @@
+/**
+ * ====================================================================
+ * PINK SAKURA — EDITORIAL VACATION DIARY
+ * Complete Responsive Design System & Cross-Device Optimization
+ * ====================================================================
+ * Breakpoint Architecture:
+ * - 320px–360px: Small mobile (iPhone SE, older Galaxy)
+ * - 361px–390px: Standard mobile (iPhone 12/13/14, Pixel)
+ * - 391px–430px: Large mobile (iPhone Pro Max, Galaxy Ultra)
+ * - 431px–576px: Extra-small tablets & foldables
+ * - 577px–768px: Tablets (portrait)
+ * - 769px–992px: Tablets (landscape) & small laptops
+ * - 993px–1200px: Laptops & desktops
+ * - 1201px–1440px: Large desktop monitors
+ * - 1441px–1920px+: Ultrawide monitors
+ * ====================================================================
+ */
+
+/* ====================================================================
+   1. GLOBAL MOBILE-FIRST FOUNDATIONS & SAFE AREAS
+   ==================================================================== */
+
+:root {
+  --nav-height: 70px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+/* Prevent layout shift and horizontal overflow across all devices */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Prevent body scrolling when mobile menu or modal drawer is active */
+body.nav-menu-open {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+/* Accessible touch targets & tap highlighting */
+button, 
+a, 
+input, 
+select, 
+.gallery-card {
+  -webkit-tap-highlight-color: rgba(217, 145, 165, 0.2);
+}
+
+/* ====================================================================
+   2. ULTRAWIDE & LARGE DESKTOP ENHANCEMENTS (>= 1440px & >= 1920px)
+   ==================================================================== */
+
+@media (min-width: 1440px) {
+  :root {
+    --container-width: min(90%, 1380px);
+  }
+
+  .hero-grid {
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 70px;
+  }
+
+  .hero-scrapbook-frame {
+    max-width: 580px;
+  }
+
+  .hero-intro {
+    max-width: 620px;
+    font-size: 1.15rem;
+  }
+
+  /* 4 Columns for Photo Gallery on wide displays for balanced density */
+  .gallery-container.layout-masonry {
+    column-count: 4;
+    column-gap: 30px;
+  }
+
+  .gallery-container.layout-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+
+  .dashain-collage,
+  .tihar-collage {
+    gap: 40px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --container-width: min(88%, 1560px);
+    --base-font-size: 17px;
+  }
+
+  .hero-section {
+    padding-top: 160px;
+    padding-bottom: 110px;
+  }
+
+  .hero-scrapbook-frame {
+    max-width: 620px;
+  }
+
+  .hero-intro {
+    max-width: 680px;
+  }
+}
+
+/* ====================================================================
+   3. LAPTOP & DESKTOP ADJUSTMENTS (993px - 1200px)
+   ==================================================================== */
+
+@media (max-width: 1200px) {
+  .hero-grid {
+    gap: 40px;
+  }
+
+  .dashain-collage,
+  .tihar-collage {
+    gap: 25px;
+  }
+
+  .video-grid {
+    gap: 30px;
+  }
+}
+
+/* ====================================================================
+   4. TABLETS & SMALL LAPTOPS (769px - 992px)
+   ==================================================================== */
+
+@media (max-width: 992px) {
+  .hero-section {
+    min-height: auto;
+    padding-top: calc(var(--nav-height) + 32px);
+    padding-bottom: 60px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+
+  .hero-scrapbook-frame {
+    max-width: 440px;
+  }
+
+  .hero-intro {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+
+  /* 2-Column Collages on medium tablets */
+  .dashain-collage,
+  .tihar-collage {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .collage-item:nth-child(3),
+  .tihar-item:nth-child(3) {
+    grid-column: span 2;
+    max-width: 460px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .gallery-container.layout-masonry {
+    column-count: 2;
+    column-gap: 20px;
+  }
+
+  .gallery-container.layout-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-showcase-card {
+    gap: 30px;
+    padding: 30px;
+  }
+}
+
+/* ====================================================================
+   5. MOBILE & TABLET PORTRAIT SYSTEM (<= 768px)
+   ==================================================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 64px;
+  }
+
+  .navbar {
+    padding: 10px 0;
+    background-color: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .navbar.scrolled {
+    padding: 8px 0;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .nav-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+    font-size: 1rem;
+  }
+
+  /* Hamburger Menu Toggle Button */
+  .nav-toggle-btn {
+    display: flex;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+  }
+
+  .nav-toggle-btn.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle-btn.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle-btn.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile Slide-Down Navigation Drawer */
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    max-height: calc(100dvh - var(--nav-height));
+    max-height: calc(100vh - var(--nav-height));
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border-soft);
+    box-shadow: 0 16px 35px rgba(169, 79, 112, 0.15);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px 24px calc(24px + var(--safe-bottom));
+    gap: 8px;
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 999;
+  }
+
+  .nav-links.nav-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    min-height: 48px;
+    background: transparent;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .nav-link::after {
+    display: none; /* Replace underline with full-touch row highlight on mobile */
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: var(--bg-secondary);
+    color: var(--rose-deep);
+  }
+
+  /* Hero Section Mobile Restructure */
+  .hero-section {
+    display: block !important;
+    min-height: auto !important;
+    padding-top: calc(var(--nav-height) + 40px) !important;
+    padding-bottom: 50px !important;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: center;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-welcome-badge {
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+    padding: 5px 16px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 7.5vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+  }
+
+  .hero-intro {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 94%;
+  }
+
+  .hero-meta-badge {
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 10px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    width: auto;
+    max-width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .hero-media {
+    order: 0; /* Natural flow: Heading -> Photo -> Intro -> Meta */
+    margin: 10px 0;
+  }
+
+  .hero-scrapbook-frame {
+    max-width: min(340px, 88vw);
+    transform: rotate(-1deg);
+    padding: 12px 12px 38px 12px;
+    margin: 0 auto;
+  }
+
+  .hero-scrapbook-frame:hover {
+    transform: rotate(0deg);
+  }
+
+  .hero-stamp-badge {
+    width: 62px;
+    height: 62px;
+    top: -12px;
+    right: -8px;
+  }
+
+  .hero-stamp-badge .stamp-motif {
+    font-size: 0.58rem;
+    margin-bottom: 1px;
+  }
+
+  .hero-stamp-badge .stamp-season {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-stamp-badge .stamp-year {
+    font-size: 0.62rem;
+    margin-top: 1px;
+  }
+
+  .hero-caption {
+    font-size: 1.2rem;
+    bottom: 10px;
+  }
+
+  /* Scroll down indicator: hidden on touch devices & mobile */
+  .scroll-down-hint {
+    display: none !important;
+  }
+
+  /* Overview Paper Card */
+  .overview-paper-card {
+    padding: 35px 20px;
+    border-radius: 16px;
+  }
+
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .overview-note-box {
+    border-left: none;
+    border-top: 3px solid var(--rose-dusty);
+    padding-left: 0;
+    padding-top: 18px;
+    text-align: center;
+  }
+
+  .overview-handwritten-quote {
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+  }
+
+  .overview-text {
+    font-size: 0.98rem;
+  }
+
+  .overview-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .stat-card {
+    padding: 16px 12px;
+  }
+
+  .stat-number {
+    font-size: 1.85rem;
+  }
+
+  .stat-label {
+    font-size: 0.82rem;
+  }
+
+  /* Collages: Single Column for Clean Stacking */
+  .dashain-collage,
+  .tihar-collage {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .collage-item:nth-child(1),
+  .collage-item:nth-child(2),
+  .collage-item:nth-child(3),
+  .tihar-item:nth-child(1),
+  .tihar-item:nth-child(2),
+  .tihar-item:nth-child(3) {
+    transform: none !important;
+    grid-column: span 1 !important;
+    max-width: 100% !important;
+  }
+
+  .collage-item:hover,
+  .tihar-item:hover {
+    transform: none !important;
+  }
+
+  .polaroid-frame {
+    padding: 12px 12px 28px 12px;
+  }
+
+  .polaroid-title {
+    font-size: 1.15rem;
+  }
+
+  .polaroid-text {
+    font-size: 0.9rem;
+  }
+
+  /* Feature Showcase Cards (Swing & Rangoli) */
+  .feature-showcase-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 18px;
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  .feature-showcase-img {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  /* Photo Gallery: Single Column Mobile */
+  .gallery-container.layout-masonry {
+    column-count: 1;
+  }
+
+  .gallery-container.layout-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .gallery-card {
+    margin-bottom: 24px;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(169, 79, 112, 0.12), 0 3px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .gallery-card-inner {
+    padding: 12px 12px 14px 12px;
+  }
+
+  .gallery-card-footer {
+    padding: 12px 4px 4px;
+  }
+
+  .card-caption-snippet {
+    font-size: 1.18rem;
+    color: var(--text-main);
+  }
+
+  .gallery-card-story {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--text-main);
+    opacity: 0.88;
+  }
+
+  /* On mobile touch screens, ensure the over effect appears over the picture on tap/hover */
+  .gallery-card-overlay {
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    background: linear-gradient(to top, rgba(51, 36, 43, 0.9) 0%, rgba(51, 36, 43, 0.35) 65%, transparent 100%);
+    padding: 16px;
+  }
+
+  .gallery-card:hover .gallery-card-overlay,
+  .gallery-card.is-hovered .gallery-card-overlay,
+  .gallery-card.touch-active .gallery-card-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Fullscreen Lightbox Modal Mobile */
+  .lightbox {
+    padding: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-content-box {
+    width: 100%;
+    max-height: calc(100dvh - 24px);
+    max-height: calc(100vh - 24px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .lightbox-image-holder {
+    max-height: clamp(220px, 48dvh, 60vh);
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-image-holder img {
+    max-height: clamp(220px, 48dvh, 60vh);
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .lightbox-details {
+    padding: 14px 16px;
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    max-height: 35dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .lightbox-title {
+    font-size: 1.05rem;
+  }
+
+  .lightbox-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .lightbox-meta {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border-soft);
+  }
+
+  /* Lightbox Controls for Touch / One-Handed Use */
+  .lightbox-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 1.15rem;
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  .lightbox-close-btn {
+    top: max(10px, var(--safe-top));
+    right: max(12px, var(--safe-right));
+  }
+
+  .lightbox-prev-btn {
+    left: 8px;
+  }
+
+  .lightbox-next-btn {
+    right: 8px;
+  }
+
+  /* Video Memories Mobile */
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .video-card {
+    border-radius: 16px;
+  }
+
+  .video-player-box {
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-info {
+    padding: 18px 20px;
+  }
+
+  .video-title {
+    font-size: 1.15rem;
+  }
+
+  .video-caption {
+    font-size: 0.9rem;
+  }
+
+  /* Scrapbook Cards Mobile */
+  .scrapbook-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .scrapbook-card {
+    transform: none !important;
+    padding: 20px 18px;
+  }
+
+  .scrapbook-inner {
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .scrapbook-title {
+    font-size: 1.1rem;
+  }
+
+  .scrapbook-desc {
+    font-size: 0.88rem;
+  }
+
+  /* Learning Cards Mobile */
+  .learnings-list {
+    gap: 18px;
+  }
+
+  .learning-card {
+    padding: 22px 20px;
+    gap: 18px;
+    border-radius: 14px;
+  }
+
+  .learning-card:hover {
+    transform: none;
+  }
+
+  .learning-num {
+    font-size: 1.8rem;
+  }
+
+  .learning-title {
+    font-size: 1.15rem;
+  }
+
+  .learning-text {
+    font-size: 0.92rem;
+  }
+
+  /* Closing Card Mobile */
+  .closing-card {
+    padding: 40px 20px;
+    border-radius: 18px;
+  }
+
+  .closing-image-wrapper {
+    max-width: 210px;
+    margin-bottom: 24px;
+  }
+
+  .closing-title {
+    font-size: 1.85rem;
+  }
+
+  .closing-quote {
+    font-size: 1.15rem;
+  }
+
+  .closing-signoff {
+    font-size: 1.8rem;
+  }
+
+  /* Back to Top FAB */
+  .back-to-top {
+    bottom: max(16px, var(--safe-bottom));
+    right: max(16px, var(--safe-right));
+    width: 44px;
+    height: 44px;
+    font-size: 1.15rem;
+  }
+
+  /* Settings Drawer Mobile: Full Width Slide-in / Sheet */
+  .settings-drawer {
+    width: 100%;
+    max-width: 100vw;
+    height: 100dvh;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .settings-header {
+    padding: calc(16px + var(--safe-top)) 20px 16px;
+  }
+
+  .settings-title {
+    font-size: 1.2rem;
+  }
+
+  .settings-close-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .settings-body {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .settings-footer {
+    padding: 16px 20px calc(16px + var(--safe-bottom));
+  }
+
+  .reset-btn {
+    min-height: 44px;
+    font-size: 0.92rem;
+  }
+}
+
+/* ====================================================================
+   6. EXTRA-SMALL MOBILE PHONES (<= 480px & <= 360px)
+   ==================================================================== */
+
+@media (max-width: 480px) {
+  .section-tag {
+    font-size: 1.15rem;
+    padding: 3px 12px;
+  }
+
+  .overview-paper-card {
+    padding: 28px 16px;
+  }
+
+  .scrapbook-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .scrapbook-media {
+    max-width: 180px;
+    margin: 0 auto 12px;
+  }
+
+  .learning-card {
+    flex-direction: column;
+    padding: 20px 16px;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .learning-num {
+    margin: 0 auto;
+  }
+
+  /* Theme Swatches Wrap on Small Phones */
+  .theme-picker-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+
+  .theme-swatch {
+    height: 42px;
+    font-size: 0.95rem;
+  }
+
+  .editorial-quote-box {
+    padding: 18px 20px;
+  }
+
+  .editorial-quote {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --base-font-size: 15px;
+  }
+
+  .nav-logo-text {
+    font-size: 1.05rem;
+  }
+
+  .nav-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .nav-toggle-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .hero-welcome-badge {
+    font-size: 1.15rem;
+    padding: 4px 14px;
+  }
+
+  .hero-scrapbook-frame {
+    max-width: min(270px, 80vw);
+    transform: none !important;
+  }
+
+  .hero-meta-badge {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .overview-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .theme-picker-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .feature-showcase-card {
+    padding: 18px 12px;
+  }
+}
+
+/* ====================================================================
+   7. SHORT VIEWPORTS & LANDSCAPE PHONES
+   ==================================================================== */
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero-section {
+    padding-top: calc(var(--nav-height) + 15px);
+    padding-bottom: 30px;
+  }
+
+  .scroll-down-hint {
+    display: none;
+  }
+
+  .lightbox-content-box {
+    flex-direction: row;
+    max-height: 94dvh;
+  }
+
+  .lightbox-image-holder {
+    max-height: 90dvh;
+    max-width: 60%;
+  }
+
+  .lightbox-details {
+    max-width: 40%;
+    margin-top: 0;
+    margin-left: 14px;
+    max-height: 90dvh;
+  }
+}
+
+/* ====================================================================
+   8. HOVER VS TOUCH CAPABILITIES
+   ==================================================================== */
+
+@media (hover: none) {
+  /* Support over effect, active and touch-lift states smoothly on all pictures on mobile */
+  .hero-scrapbook-frame.is-hovered,
+  .hero-scrapbook-frame.touch-active,
+  .hero-scrapbook-frame:active,
+  .collage-item:active,
+  .collage-item.touch-active,
+  .collage-item.is-hovered,
+  .tihar-item:active,
+  .tihar-item.touch-active,
+  .tihar-item.is-hovered,
+  .gallery-card:active,
+  .gallery-card.touch-active,
+  .gallery-card.is-hovered,
+  .scrapbook-card.is-hovered,
+  .scrapbook-card.touch-active,
+  .scrapbook-card:active {
+    transform: translateY(-6px);
+  }
+
+  .hero-scrapbook-frame.is-hovered,
+  .hero-scrapbook-frame.touch-active,
+  .hero-scrapbook-frame:active {
+    transform: rotate(0deg) scale(1.02);
+  }
+
+  .collage-item:active .polaroid-frame,
+  .collage-item.touch-active .polaroid-frame,
+  .collage-item.is-hovered .polaroid-frame,
+  .tihar-item:active,
+  .tihar-item.touch-active,
+  .tihar-item.is-hovered,
+  .gallery-card:active,
+  .gallery-card.touch-active,
+  .gallery-card.is-hovered,
+  .scrapbook-card.is-hovered,
+  .scrapbook-card.touch-active {
+    box-shadow: 0 18px 40px rgba(169, 79, 112, 0.24), 0 6px 12px rgba(0, 0, 0, 0.06);
+    border-color: rgba(217, 145, 165, 0.4);
+  }
+
+  /* Photo zoom on over effect */
+  .hero-scrapbook-frame.is-hovered .hero-photo-container img,
+  .hero-scrapbook-frame.touch-active .hero-photo-container img,
+  .collage-item:active .collage-photo,
+  .collage-item.touch-active .collage-photo,
+  .collage-item.is-hovered .collage-photo,
+  .tihar-item:active .tihar-photo,
+  .tihar-item.touch-active .tihar-photo,
+  .tihar-item.is-hovered .tihar-photo,
+  .gallery-card:active .gallery-thumb,
+  .gallery-card.touch-active .gallery-thumb,
+  .gallery-card.is-hovered .gallery-thumb,
+  .scrapbook-card.is-hovered .scrapbook-media img,
+  .scrapbook-card.touch-active .scrapbook-media img,
+  .closing-card.is-hovered .closing-image-wrapper img,
+  .closing-card.touch-active .closing-image-wrapper img {
+    transform: scale(1.05);
+  }
+
+  /* Gallery overlay over effect on mobile */
+  .gallery-card.is-hovered .gallery-card-overlay,
+  .gallery-card.touch-active .gallery-card-overlay {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Provide instant tactile feedback on active tap */
+  .like-btn:active,
+  .nav-btn:active,
+  .nav-toggle-btn:active,
+  .reset-btn:active,
+  .gallery-heart-btn:active {
+    transform: scale(0.94);
+  }
+}
+
+/* ====================================================================
+   9. ACCESSIBILITY & PREFERS-REDUCED-MOTION
+   ==================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

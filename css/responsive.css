@@ -528,23 +528,6 @@ select,
     opacity: 0.88;
   }
 
-  /* On mobile touch screens, ensure the over effect appears over the picture on tap/hover */
-  .gallery-card-overlay {
-    display: flex;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
-    background: linear-gradient(to top, rgba(51, 36, 43, 0.9) 0%, rgba(51, 36, 43, 0.35) 65%, transparent 100%);
-    padding: 16px;
-  }
-
-  .gallery-card:hover .gallery-card-overlay,
-  .gallery-card.is-hovered .gallery-card-overlay,
-  .gallery-card.touch-active .gallery-card-overlay {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
   /* Fullscreen Lightbox Modal Mobile */
   .lightbox {
     padding: 12px;
@@ -641,6 +624,16 @@ select,
 
   .video-player-box {
     aspect-ratio: 16 / 9;
+  }
+
+  .video-play-btn {
+    width: 56px;
+    height: 56px;
+  }
+
+  .video-play-btn .play-svg {
+    width: 22px;
+    height: 22px;
   }
 
   .video-info {
@@ -985,13 +978,6 @@ select,
   .closing-card.is-hovered .closing-image-wrapper img,
   .closing-card.touch-active .closing-image-wrapper img {
     transform: scale(1.05);
-  }
-
-  /* Gallery overlay over effect on mobile */
-  .gallery-card.is-hovered .gallery-card-overlay,
-  .gallery-card.touch-active .gallery-card-overlay {
-    opacity: 1 !important;
-    pointer-events: auto !important;
   }
 
   /* Provide instant tactile feedback on active tap */

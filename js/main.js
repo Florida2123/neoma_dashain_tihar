@@ -206,6 +206,11 @@ function renderVideos(videos) {
           <source src="${v.videoSrc}" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
+        <button class="video-play-btn" type="button" aria-label="Play ${v.title}">
+          <svg viewBox="0 0 24 24" class="play-svg" aria-hidden="true" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
         <div class="video-placeholder-hint">
           <span class="hint-icon">📹</span>
           <p class="hint-text">To display your personal video, place an MP4 file in <code>assets/videos/</code> and update <code>content.js</code>.</p>
@@ -373,17 +378,41 @@ function setupScrollReveals() {
 }
 
 /**
- * Graceful video handling: detect if local video fails to load and show helpful guide
+ * Graceful video handling: play/pause state synchronization and missing video guide
  */
 function setupVideoPlayers() {
-  const videos = document.querySelectorAll('.html5-video');
-  videos.forEach(video => {
+  const playerBoxes = document.querySelectorAll('.video-player-box');
+  playerBoxes.forEach(box => {
+    const video = box.querySelector('.html5-video');
+    const playBtn = box.querySelector('.video-play-btn');
+    if (!video) return;
+
     video.addEventListener('error', () => {
-      const parent = video.closest('.video-player-box');
-      if (parent) {
-        parent.classList.add('video-missing');
-      }
+      box.classList.add('video-missing');
     });
+
+    video.addEventListener('play', () => {
+      box.classList.add('is-playing');
+    });
+
+    video.addEventListener('pause', () => {
+      box.classList.remove('is-playing');
+    });
+
+    video.addEventListener('ended', () => {
+      box.classList.remove('is-playing');
+    });
+
+    if (playBtn) {
+      playBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    }
   });
 }
 

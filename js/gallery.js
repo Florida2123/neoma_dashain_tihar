@@ -52,12 +52,6 @@ class DiaryGallery {
           <div class="washi-tape-accent" aria-hidden="true"></div>
           <div class="image-wrapper">
             <img src="${item.src}" alt="${item.title}" loading="lazy" class="gallery-thumb" onerror="this.src='assets/images/hero.svg'">
-            <div class="gallery-card-overlay">
-              <span class="gallery-card-badge">${item.category}</span>
-              <h3 class="gallery-card-title">${item.title}</h3>
-              <p class="gallery-card-desc">${item.caption}</p>
-              <span class="view-btn"><span class="icon">🔍</span> Enlarge</span>
-            </div>
           </div>
           <div class="gallery-card-footer">
             <div class="gallery-card-header">
@@ -92,28 +86,9 @@ class DiaryGallery {
         });
       }
 
-      // Mobile touch & over effect handling
       card.addEventListener('click', (e) => {
         if (e.target.closest('.gallery-heart-btn')) return;
-
-        const isTouch = window.matchMedia && window.matchMedia('(hover: none)').matches;
-        if (isTouch) {
-          const isOverEffectActive = card.classList.contains('is-hovered');
-          const clickedEnlarge = e.target.closest('.view-btn, .gallery-card-hint');
-
-          if (isOverEffectActive || clickedEnlarge) {
-            this.open(index);
-          } else {
-            // Deactivate others and activate this card's over effect
-            document.querySelectorAll('.gallery-card.is-hovered, .collage-item.is-hovered, .tihar-item.is-hovered, .hero-scrapbook-frame.is-hovered').forEach(c => {
-              if (c !== card) c.classList.remove('is-hovered', 'touch-active');
-            });
-            card.classList.add('is-hovered', 'touch-active');
-          }
-        } else {
-          // Desktop: open directly
-          this.open(index);
-        }
+        this.open(index);
       });
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
